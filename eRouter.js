@@ -33,12 +33,7 @@ eRouter = {
 		window.location.hash = '#!/'+path;
 	},
 	init: function (pages) {
-
-		var _this = this;
 		this._run(pages);
-
-		window.addEventListener("hashchange", function () {
-			_this._run(pages);
-		}, false);
+		window.addEventListener("hashchange", this._run.call(null, pages), false);
 	}
 };
