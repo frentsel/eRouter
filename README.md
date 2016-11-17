@@ -1,4 +1,4 @@
-# eRouter
+# eRouter - javascript URI hash router
 ![preview](/preview.png?v=2)
 
 eRouter is a super easy javascript hash routing library. 
