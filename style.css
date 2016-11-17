@@ -46,7 +46,7 @@ li a:hover {
 	padding-top: 20px;
 	overflow: hidden;
 	clear: both;
-	color: #8cbc2b;
+	color: #555;
 }
 
 a#home {
@@ -55,7 +55,7 @@ a#home {
 	left: 0;
 	width: 72px;
 	height: auto;
-	background: yellowgreen;
+	background: gray;
 }
 
 img {
