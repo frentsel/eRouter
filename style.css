@@ -51,10 +51,11 @@ li a:hover {
 
 a#home {
 	position: absolute;
-	bottom: 0;
+	top: 0;
 	left: 0;
 	width: 72px;
 	height: auto;
+	background: yellowgreen;
 }
 
 img {
