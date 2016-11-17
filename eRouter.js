@@ -1,4 +1,4 @@
-Router = {
+eRouter = {
 	_run: function (pages) {
 
 		var key,

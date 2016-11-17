@@ -2,9 +2,8 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Easy Router</title>
+	<title>eRouter</title>
 	<link rel="stylesheet" href="style.css">
-	<script src="superEasyRouter.js"></script>
 </head>
 <body>
 
@@ -15,16 +14,23 @@
 		<li><a href="#!/contact">Contact</a></li>
 		<li><a href="#!/product/1">Product 1</a></li>
 		<li><a href="#!/product/2">Product 2</a></li>
-		<li><a href="#!/product/2/someParam/nextParam">Product 2*</a></li>
+		<li><a href="#!/product/2/title/price">Product 2*</a></li>
 	</ul>
+	<div id="params"></div>
 
+	<script src="eRouter.min.js"></script>
 	<script>
 
-		var Render = function (pageName) {
+		var Render = function (pageName, params) {
 			document.getElementById("page").innerHTML = pageName;
+			if(params) {
+				document.getElementById("params").innerHTML = "Params: ["+params.join(', ')+"]";
+			} else  {
+				document.getElementById("params").innerHTML = "Params: []";
+			}
 		};
 
-		Router.init({
+		eRouter.init({
 			index: function () {
 				Render('Easy router Index page');
 			},
@@ -35,8 +41,10 @@
 				Render('Contact page');
 			},
 			product: function (id) {
-				Render('Product '+id);
-				console.info("params: ", Array.prototype.slice.call(arguments));
+
+				var params = Array.prototype.slice.call(arguments);
+				Render('Product '+id, params);
+				console.info("params: ", params);
 			},
 			notFound: function (page) {
 				console.info("Page '"+page+"' not found!");

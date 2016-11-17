@@ -27,3 +27,10 @@ a {
 a:hover {
 	background: yellowgreen;
 }
+
+#params {
+	padding-top: 20px;
+	overflow: hidden;
+	clear: both;
+	color: #8cbc2b;
+}
