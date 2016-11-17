@@ -7,47 +7,53 @@
 </head>
 <body>
 
-	<h1 id="page"></h1>
+	<h1 id="page">&nbsp;</h1>
 	<ul>
-		<li><a href="#!/">Index</a></li>
+		<li><a href="#!/" class="active">Index</a></li>
 		<li><a href="#!/about">About</a></li>
 		<li><a href="#!/contact">Contact</a></li>
 		<li><a href="#!/product/1">Product 1</a></li>
 		<li><a href="#!/product/2">Product 2</a></li>
 		<li><a href="#!/product/2/title/price">Product 2*</a></li>
 	</ul>
-	<div id="params"></div>
+	<div id="params">&nbsp;</div>
 
-	<script src="eRouter.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="eRouter.js"></script>
 	<script>
 
 		var Render = function (pageName, params) {
-			document.getElementById("page").innerHTML = pageName;
-			if(params) {
-				document.getElementById("params").innerHTML = "Params: ["+params.join(', ')+"]";
-			} else  {
-				document.getElementById("params").innerHTML = "Params: []";
-			}
+
+			$('a').removeClass('active');
+			$('a[href="'+window.location.hash+'"]').addClass('active');
+			$("#page").html(pageName);
+			$("#params").html(params ? "Params: ["+params.join(', ')+"]" : "Params: []");
 		};
 
 		eRouter.init({
 			index: function () {
-				Render('Easy router Index page');
+
+				var params = Array.prototype.slice.call(arguments);
+				Render('Easy router Index page', params);
 			},
 			about: function () {
-				Render('About page');
+
+				var params = Array.prototype.slice.call(arguments);
+				Render('About page', params);
 			},
 			contact: function () {
-				Render('Contact page');
+
+				var params = Array.prototype.slice.call(arguments);
+				Render('Contact page', params);
 			},
 			product: function (id) {
 
 				var params = Array.prototype.slice.call(arguments);
 				Render('Product '+id, params);
-				console.info("params: ", params);
 			},
 			notFound: function (page) {
-				console.info("Page '"+page+"' not found!");
+
+				Render("Page '"+page+"' not found!", []);
 			}
 		});
 	</script>
