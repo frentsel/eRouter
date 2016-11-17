@@ -12,7 +12,7 @@ It is very tiny (less then 50 strings of code or 0.27 kb), and should be able to
 
 Here is the most basic way:
 
-```
+```javascript
 eRouter.init({
     index: function () {
         console.log('Index Page');
@@ -32,7 +32,7 @@ eRouter.init({
 
 If you want to trigger a route manually, you can call routie like this:
 
-```
+```javascript
 eRouter.set('product/12');
 ```
 
