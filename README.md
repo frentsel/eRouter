@@ -1,9 +1,10 @@
 # eRouter
 
-![Preview](/preview.png)
-
 eRouter is a super easy javascript hash routing library. 
 It is very tiny (less then 50 strings of code or 0.27 kb), and should be able to handle all your routing needs.
+
+## Demo
+https://frentsel.github.io/eRouter/#!/product/2/title/price
 
 ## Download
 **CDN:** https://cdn.rawgit.com/frentsel/SuperEasyHashRouter/master/eRouter.min.js
