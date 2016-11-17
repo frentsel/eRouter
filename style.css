@@ -2,36 +2,43 @@
 	padding: 0;
 	margin: 0;
 }
+
 html {
 	background: #fcfcfc;
 }
+
 body {
 	font-family: cursive;
 	color: gray;
 	max-width: 600px;
 	margin: 0 auto;
 }
+
 h1 {
 	margin-bottom: 15px;
 	color: #8cbc2b;
 }
+
 li {
 	float: left;
 	list-style: none;
 	padding: 0;
 }
-a {
+
+li a {
 	padding: 5px 18px;
 	background: gray;
 	color: white;
 	text-decoration: none;
 	border-right: 1px solid #727272;
 }
+
 li:last-child a {
 	border: 0;
 }
-a.active,
-a:hover {
+
+li a.active,
+li a:hover {
 	background: yellowgreen;
 }
 
@@ -40,4 +47,16 @@ a:hover {
 	overflow: hidden;
 	clear: both;
 	color: #8cbc2b;
+}
+
+a#home {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 72px;
+	height: auto;
+}
+
+img {
+	max-width: 100%;
 }
