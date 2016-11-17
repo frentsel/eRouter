@@ -2,6 +2,9 @@
 	padding: 0;
 	margin: 0;
 }
+html {
+	background: #fcfcfc;
+}
 body {
 	font-family: cursive;
 	color: gray;
