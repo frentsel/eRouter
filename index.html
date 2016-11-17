@@ -3,37 +3,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Easy Router</title>
-	<style>
-		* {
-			padding: 0;
-			margin: 0;
-		}
-		body {
-			font-family: cursive;
-			color: gray;
-			max-width: 500px;
-			margin: 0 auto;
-		}
-		h1 {
-			margin-bottom: 15px;
-			color: #8cbc2b;
-		}
-		li {
-			float: left;
-			list-style: none;
-			padding: 0;
-		}
-		a {
-			padding: 5px 10px;
-			background: gray;
-			color: white;
-			text-decoration: none;
-			border-right: 1px solid;
-		}
-		a:hover {
-			background: yellowgreen;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css">
+	<script src="superEasyRouter.js"></script>
 </head>
 <body>
 
@@ -48,50 +19,6 @@
 	</ul>
 
 	<script>
-		Router = {
-			_run: function (pages) {
-
-				var key,
-					keys,
-					hash = window.location.hash;
-
-				if(hash.indexOf('#!/') === -1) {
-					window.location.hash = '#!/';
-					return false;
-				}
-
-				key = hash.split('#!/').pop();
-
-				if(key.length === 0) {
-					pages.index();
-					return false;
-				}
-
-				if(key.indexOf('/') !== -1) {
-					keys = key.split('/');
-					key = keys.shift();
-				}
-
-				if(pages[key] === undefined) {
-					pages.notFound(key);
-					return false;
-				}
-
-				pages[key].apply(null, keys);
-			},
-			set: function (path) {
-				window.location.hash = '#!/'+path;
-			},
-			init: function (pages) {
-
-				var _this = this;
-				this._run(pages);
-
-				window.addEventListener("hashchange", function () {
-					_this._run(pages);
-				}, false);
-			}
-		};
 
 		var Render = function (pageName) {
 			document.getElementById("page").innerHTML = pageName;

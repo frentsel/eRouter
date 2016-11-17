@@ -1,0 +1,29 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font-family: cursive;
+	color: gray;
+	max-width: 500px;
+	margin: 0 auto;
+}
+h1 {
+	margin-bottom: 15px;
+	color: #8cbc2b;
+}
+li {
+	float: left;
+	list-style: none;
+	padding: 0;
+}
+a {
+	padding: 5px 10px;
+	background: gray;
+	color: white;
+	text-decoration: none;
+	border-right: 1px solid;
+}
+a:hover {
+	background: yellowgreen;
+}
