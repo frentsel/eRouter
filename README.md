@@ -30,7 +30,7 @@ eRouter.init({
 });
 ```
 
-If you want to trigger a route manually, you can call routie like this:
+If you want to trigger a route manually, you can call eRouter like this:
 
 ```javascript
 eRouter.set('product/12');
