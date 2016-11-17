@@ -23,8 +23,11 @@ eRouter.init({
         console.log('About Page');
     },
     product: function (id) {
+        console.log("Product id: ", id);
+    },
+    product: function (id, price, count) {
         var params = Array.prototype.slice.call(arguments);
-        console.info("Product page, params: ", params);
+        console.log("Product params: ", params);
     },
     notFound: function (page) {
         console.info("Page '"+page+"' not found!");
