@@ -8,7 +8,7 @@ It is very tiny (less then 50 strings of code or 0.27 kb), and should be able to
 https://frentsel.github.io/eRouter/#!/
 
 ## Download
-**CDN:** https://cdn.rawgit.com/frentsel/SuperEasyHashRouter/master/eRouter.min.js
+**CDN:** https://cdn.rawgit.com/frentsel/eRouter/master/eRouter.min.js
 
 ## Basic Usage
 
