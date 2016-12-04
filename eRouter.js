@@ -1,5 +1,5 @@
 eRouter = {
-	_run: function (pages) {
+	run: function (pages) {
 
 		var key,
 			keys,
@@ -34,8 +34,8 @@ eRouter = {
 	},
 	init: function (pages) {
 
-		var foo = this._run.bind(this, pages);
-		foo();
-		window.addEventListener("hashchange", foo, false);
+		var _run = this.run.bind(this, pages);
+		_run();
+		window.addEventListener("hashchange", _run, false);
 	}
 };
