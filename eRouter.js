@@ -34,11 +34,8 @@ eRouter = {
 	},
 	init: function (pages) {
 
-		var _this = this;
-		this._run(pages);
-
-		window.addEventListener("hashchange", function () {
-			_this._run(pages);
-		}, false);
+		var foo = this._run.bind(this, pages);
+		foo();
+		window.addEventListener("hashchange", foo, false);
 	}
 };
