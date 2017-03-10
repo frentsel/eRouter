@@ -26,7 +26,7 @@ eRouter.init({
         console.log("Product id: ", id);
     },
     product: function (id, price, count) {
-        var params = Array.prototype.slice.call(arguments);
+        var params = [].slice.call(arguments);
         console.log("Product params: ", params);
     },
     notFound: function (page) {
