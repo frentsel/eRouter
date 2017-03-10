@@ -1,5 +1,6 @@
-eRouter = {
-	run: function (pages) {
+eRouter = new function () {
+
+	var run = function (pages) {
 
 		var key,
 			keys,
@@ -28,14 +29,21 @@ eRouter = {
 		}
 
 		pages[key].apply(null, keys);
-	},
-	set: function (path) {
-		window.location.hash = '#!/'+path;
-	},
-	init: function (pages) {
+	};
 
-		var _run = this.run.bind(this, pages);
-		_run();
-		window.addEventListener("hashchange", _run, false);
-	}
+	this.set = function (path) {
+		window.location.hash = '#!/'+path;
+	};
+
+	this.init = function (pages) {
+
+		run(pages);
+		window.addEventListener(
+			"hashchange",
+			run.bind(this, pages),
+			false
+		);
+	};
+
+	return this;
 };
