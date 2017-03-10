@@ -6,10 +6,6 @@
 
 html {
 	background: #eee;
-}
-
-html,
-body {
 	height: 100%;
 }
 
@@ -24,6 +20,9 @@ body {
 	border-left: 1px solid lightgrey;
 	border-right: 1px solid lightgrey;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
 }
 
 h1 {
@@ -63,11 +62,23 @@ li a:hover {
 	background: yellowgreen;
 }
 
+p {
+	margin-bottom: 20px;
+	color: #333;
+	margin-top: 20px;
+}
+
+.content {
+	flex-grow: 1;
+}
+
 #params {
 	padding-top: 20px;
 	overflow: hidden;
 	clear: both;
-	color: #666;
+	color: #d14;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 #home {
@@ -79,12 +90,9 @@ img {
 }
 
 footer {
-	position: absolute;
 	width: 100%;
 	border-top: 1px solid lightgrey;
-	left: 0;
-	padding-left: 20px;
 	height: 40px;
-	bottom: 0;
 	line-height: 40px;
+	margin-top: 20px;
 }
