@@ -1,98 +1,117 @@
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 html {
-	background: #eee;
-	height: 100%;
+    background: #eee;
+    height: 100%;
 }
 
 body {
-	font-size: 14px;
-	font-family: 'Oxygen', sans-serif;
-	color: gray;
-	max-width: 640px;
-	margin: 0 auto;
-	background: white;
-	padding: 6px 20px;
-	border-left: 1px solid lightgrey;
-	border-right: 1px solid lightgrey;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	min-height: 100%;
+    font-size: 14px;
+    font-family: 'Oxygen', sans-serif;
+    color: gray;
+    max-width: 640px;
+    margin: 0 auto;
+    background: white;
+    padding: 6px 20px;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 
 h1 {
-	margin-bottom: 15px;
-	color: #8cbc2b;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: #666;
 }
 
 ul {
-	display: flex;
-	flex-direction: row;
-	align-content: center;
-	width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    width: 100%;
 }
 
 li {
-	list-style: none;
-	padding: 0;
-	flex-grow: 1;
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
 }
 
 li a {
-	padding: 5px 10px;
-	display: block;
-	text-align: center;
-	background: gray;
-	color: white;
-	text-decoration: none;
-	border-right: 1px solid #727272;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    background: gray;
+    color: white;
+    text-decoration: none;
+    border-right: 1px solid #727272;
 }
 
 li:last-child a {
-	border: 0;
+    border: 0;
 }
 
 li a.active,
 li a:hover {
-	background: yellowgreen;
+    background: yellowgreen;
 }
 
 p {
-	margin-bottom: 20px;
-	color: #333;
-	margin-top: 20px;
+    margin-bottom: 20px;
+    color: #333;
+    margin-top: 20px;
 }
 
-.content {
-	flex-grow: 1;
+h2 {
+    margin: 20px 0;
+    text-transform: uppercase;
 }
 
-#params {
-	padding-top: 20px;
-	overflow: hidden;
-	clear: both;
-	color: #d14;
-	font-size: 20px;
-	font-weight: bold;
+#view {
+    flex-grow: 1;
+}
+
+.params {
+    overflow: hidden;
+    clear: both;
+    color: #f92672;
+    font-weight: bold;
 }
 
 #home {
-	float: right;
+    float: right;
 }
 
 img {
-	max-width: 100%;
+    max-width: 100%;
 }
 
 footer {
-	width: 100%;
-	border-top: 1px solid lightgrey;
-	height: 40px;
-	line-height: 40px;
-	margin-top: 20px;
+    width: 100%;
+    border-top: 1px solid lightgrey;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 20px;
+}
+
+body.loading > #loader {
+    display: block;
+}
+
+#loader {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 85px;
+    bottom: 0;
+    background: rgba(255, 255, 255, .6);
 }

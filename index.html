@@ -2,94 +2,65 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>eRouter</title>
+	<title>eRouter - Super easy uri router</title>
 	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/github.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/monokai.min.css">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
 </head>
 <body>
-
-	<h1><span id="page">&nbsp;</span><a target="_blank" id="home" href="https://github.com/frentsel/eRouter">GitHub</a></h1>
+	<h1>Super easy uri router <a target="_blank" id="home" href="https://github.com/frentsel/eRouter">GitHub</a></h1>
 	<ul>
 		<li><a href="#!/" class="active">Home</a></li>
-		<li><a href="#!/about">About</a></li>
 		<li><a href="#!/contact">Contact</a></li>
-		<li><a href="#!/product/1">Product 1</a></li>
-		<li><a href="#!/product/2/title/price">Product 2*</a></li>
+		<li><a href="#!/product/first-product">Product 1</a></li>
+		<li><a href="#!/product/second-product/some-product-title/price-345">Product 2*</a></li>
 	</ul>
-	<div id="params">&nbsp;</div>
-	<br>
-	<br>
-	<hr>
-	<div class="content">
-		<p>Basic Usage:</p>
-		<pre><code class="javascript">eRouter.init({
-    index: function () {
-        console.log('Index Page');
-    },
-    about: function () {
-        console.log('About Page');
-    },
-    product: function (id) {
-        console.log("Product id: ", id);
-    },
-    product: function (id, price, count) {
-        var params = Array.prototype.slice.call(arguments);
-        console.log("Product params: ", params);
-    },
-    notFound: function (page) {
-        console.info("Page '"+page+"' not found!");
-    }
-});</code></pre>
-		<p>If you want to trigger a route manually, you can call eRouter like this:</p>
-		<pre><code class="javascript">eRouter.set('product/12');</code></pre>
-	</div>
+	<div id="view"></div>
 	<footer>
 		<a href="https://github.com/frentsel/eRouter">Super easy hash router</a> &copy; 2017
 	</footer>
+	<img id="loader" src="./loading.gif">
 
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="eRouter.js"></script>
 	<script>
 
-		var Render = function (pageName, params) {
+		var Render = function (view, params) {
 
+			$('body').addClass('loading');
 			$('a').removeClass('active');
 			$('a[href="'+window.location.hash+'"]').addClass('active');
-			$("#page").html(pageName);
-			$("#params").html(params ? "Params: ["+params.join(', ')+"]" : "Params: []");
+			$("#view").load('./pages/'+view+'.html', function () {
+				$('body').removeClass('loading');
+				$("code").each(function (n, block) {
+					hljs.highlightBlock(block);
+				});
+				$("#params").html(params ? JSON.stringify(params, null, 4) : "[]");
+				$("#productId").text(params[0]);
+			});
 		};
 
 		eRouter.init({
 			index: function () {
 
-				var params = Array.prototype.slice.call(arguments);
-				Render('Super easy hash router', params);
-			},
-			about: function () {
-
-				var params = Array.prototype.slice.call(arguments);
-				Render('About page', params);
+				var params = [].slice.call(arguments);
+				Render('index', params);
 			},
 			contact: function () {
 
-				var params = Array.prototype.slice.call(arguments);
-				Render('Contact page', params);
+				var params = [].slice.call(arguments);
+				Render('contact', params);
 			},
 			product: function (id) {
 
-				var params = Array.prototype.slice.call(arguments);
-				Render('Product '+id, params);
+				var params = [].slice.call(arguments);
+				Render('product', params);
 			},
 			notFound: function (page) {
 
-				Render("Page '"+page+"' not found!", []);
+				Render("notFound", []);
 			}
-		});
-
-		$(function () {
-			hljs.initHighlightingOnLoad();
 		});
 	</script>
 </body>
