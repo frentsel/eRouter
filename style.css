@@ -78,11 +78,10 @@ h2 {
     flex-grow: 1;
 }
 
-.params {
+.code {
     overflow: hidden;
     clear: both;
     color: #f92672;
-    font-weight: bold;
 }
 
 #home {

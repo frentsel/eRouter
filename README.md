@@ -16,22 +16,21 @@ Here is the most basic way:
 
 ```javascript
 eRouter.init({
-    index: function () {
-        console.log('Index Page');
-    },
-    about: function () {
-        console.log('About Page');
-    },
-    product: function (id) {
-        console.log("Product id: ", id);
-    },
-    product: function (id, price, count) {
-        var params = [].slice.call(arguments);
-        console.log("Product params: ", params);
-    },
-    notFound: function (page) {
-        console.info("Page '"+page+"' not found!");
-    }
+	index: function() {
+		console.log('Index Page');
+	},
+	about: function() {
+		console.log('About Page');
+	},
+	product: function(id) {
+		console.log("Product id: ", id);
+	},
+	product: function(...params) {
+		console.log("Product params: ", params);
+	},
+	notFound: function(page) {
+		console.info("Page '" + page + "' not found!");
+	}
 });
 ```
 
@@ -40,7 +39,3 @@ If you want to trigger a route manually, you can call eRouter like this:
 ```javascript
 eRouter.set('product/12');
 ```
-
-## Dependencies
-
-none

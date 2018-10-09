@@ -1,49 +1,33 @@
-eRouter = new function () {
+eRouter = function(routes) {
 
-	var run = function (pages) {
+	const run = function(routes) {
 
-		var key,
-			keys,
-			hash = window.location.hash;
+		let uri = window.location.hash;
+		let params;
 
-		if(hash.indexOf('#!/') === -1) {
-			window.location.hash = '#!/';
-			return false;
+		if (uri.indexOf('#!/') === -1) return window.location.hash = '#!/';
+
+		uri = uri.split('#!/').pop();
+
+		if (!uri.length) return routes.index();
+
+		if (uri.indexOf('/') > -1) {
+			params = uri.split('/');
+			uri = params.shift();
 		}
 
-		key = hash.split('#!/').pop();
+		if (!routes[uri]) return routes.notFound(uri);
 
-		if(key.length === 0) {
-			pages.index();
-			return false;
-		}
+		routes[uri].apply(null, params);
+	}
 
-		if(key.indexOf('/') !== -1) {
-			keys = key.split('/');
-			key = keys.shift();
-		}
+	this.set = (path) => window.location.hash = '#!/' + path;
 
-		if(pages[key] === undefined) {
-			pages.notFound(key);
-			return false;
-		}
+	run(routes);
 
-		pages[key].apply(null, keys);
-	};
-
-	this.set = function (path) {
-		window.location.hash = '#!/'+path;
-	};
-
-	this.init = function (pages) {
-
-		run(pages);
-		window.addEventListener(
-			"hashchange",
-			run.bind(this, pages),
-			false
-		);
-	};
-
-	return this;
+	window.addEventListener(
+		'hashchange',
+		run.bind(this, routes),
+		false
+	);
 };

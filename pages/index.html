@@ -1,22 +1,26 @@
 <p>Basic Usage:</p>
-<pre><code class="javascript">eRouter.init({
-    index: function () {
-        console.log('Index Page');
-    },
-    contact: function () {
-        console.log('Contact Page');
-    },
-    product: function (id) {
-        console.log("Product id: ", id);
-    },
-    product: function (id, price, count) {
-        var params = [].slice.call(arguments);
-        console.log("Product params: ", params);
-    },
-    notFound: function (page) {
-        console.info("Page '"+page+"' not found!");
-    }
-});</code></pre>
+<pre class="code">
+eRouter.init({
+	index: () => {
+		console.log('Index Page');
+	},
+	contact: () => {
+		console.log('Contact Page');
+	},
+	product: (id) => {
+		console.log("Product id: ", id);
+	},
+	product: (id, price, count) => {
+		var params = [].slice.call(arguments);
+		console.log("Product params: ", params);
+	},
+	notFound: (page) => {
+		console.info("Page '"+page+"' not found!");
+	}
+});
+</pre>
 <p>If you want to trigger a route manually, you can call eRouter like this:</p>
-<pre><code class="javascript">eRouter.set('product/12');</code></pre>
+<pre class="code">
+eRouter.set('product/12');
+</pre>
 <p><a href="./eRouter.min.js" target="_blank">Download</a></p>
