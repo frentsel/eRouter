@@ -18,7 +18,7 @@ eRouter = function(routes) {
 
 		if (!routes[uri]) return routes.notFound(uri);
 
-		routes[uri].apply(null, params);
+		routes[uri].apply(this, params);
 	}
 
 	this.set = (path) => window.location.hash = '#!/' + path;
