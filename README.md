@@ -7,9 +7,6 @@ It is very tiny (less then 40 strings of code or 0.25 kb), and should be able to
 ## Demo
 https://frentsel.github.io/eRouter/#!/
 
-## Download
-**CDN:** https://cdn.rawgit.com/frentsel/eRouter/master/eRouter.min.js
-
 ## Basic Usage
 
 Here is the most basic way:
