@@ -13,19 +13,19 @@ Here is the most basic way:
 
 ```javascript
 eRouter.init({
-  index: function() {
+  index: () => {
     console.log('Index Page');
   },
-  about: function() {
+  about: () => {
     console.log('About Page');
   },
-  product: function(id) {
+  product: (id) => {
     console.log("Product id: ", id);
   },
-  product: function(...params) {
+  product: (...params) => {
     console.log("Product params: ", params);
   },
-  notFound: function(page) {
+  notFound: (page) => {
     console.info("Page '" + page + "' not found!");
   }
 });
