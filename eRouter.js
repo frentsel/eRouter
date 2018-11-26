@@ -1,33 +1,34 @@
+
 eRouter = function(routes) {
 
-	const run = function(routes) {
+  const run = function(routes) {
 
-		let uri = window.location.hash;
-		let params;
+    let uri = window.location.hash;
+    let params;
 
-		if (uri.indexOf('#!/') === -1) return window.location.hash = '#!/';
+    if (uri.indexOf('#!/') === -1) return window.location.hash = '#!/';
 
-		uri = uri.split('#!/').pop();
+    uri = uri.split('#!/').pop();
 
-		if (!uri.length) return routes.index();
+    if (!uri.length) return routes.index();
 
-		if (uri.indexOf('/') > -1) {
-			params = uri.split('/');
-			uri = params.shift();
-		}
+    if (uri.indexOf('/') > -1) {
+      params = uri.split('/');
+      uri = params.shift();
+    }
 
-		if (!routes[uri]) return routes.notFound(uri);
+    if (!routes[uri]) return routes.notFound(uri);
 
-		routes[uri].apply(this, params);
-	}
+    routes[uri].apply(this, params);
+  }
 
-	this.set = (path) => window.location.hash = '#!/' + path;
+  this.set = (path) => window.location.hash = '#!/' + path;
 
-	run(routes);
+  run(routes);
 
-	window.addEventListener(
-		'hashchange',
-		run.bind(this, routes),
-		false
-	);
+  window.addEventListener(
+    'hashchange',
+    run.bind(this, routes),
+    false
+  );
 };
